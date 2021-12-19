@@ -51,12 +51,10 @@ namespace ii_course_project
             return double.MinValue;
         }
 
-        public Bitmap UpdateBitmap(string imagePath,int zeroX,int zeroY,int startSide, int startPSide, int startKeel, int sideWidth, int pSideWidth, int keelWidth) 
+        public Bitmap UpdateBitmap(string imagePath,int zeroX,int zeroY,int startSide, int startPSide, int startKeel, int sideWidth, int pSideWidth, int keelWidth, int angle) 
         {
             int centerX = 220;
             int topY = 26;
-
-            
 
             Bitmap modifyDiagram = new Bitmap(imagePath);
 
@@ -64,29 +62,26 @@ namespace ii_course_project
             {
                 gr.FillRectangle(new SolidBrush(Color.FromArgb(100, Color.Aqua)), zeroX + 190 - startSide, 0, sideWidth, zeroY);
                 gr.FillRectangle(new SolidBrush(Color.FromArgb(100, Color.Red)), zeroX + 190 - startPSide, 0, pSideWidth, zeroY);
-                gr.FillRectangle(new SolidBrush(Color.FromArgb(100, Color.Yellow)), zeroX + 190 - startKeel, 0, keelWidth, zeroY);
+                gr.FillRectangle(new SolidBrush(Color.FromArgb(100, Color.Yellow)), zeroX + 190 - startKeel, 0, keelWidth-10, zeroY);
 
-
-                int ellipseD = Convert.ToInt32(know._shipSpeed*13);
+                int ellipseD = Convert.ToInt32(know._shipSpeed*13)+2;
                 int ellipseR = ellipseD / 2;
 
                 int ellipseX = centerX - ellipseR - 2;
                 int ellipseY = zeroY - ellipseR;
 
-                gr.DrawEllipse(new Pen(Color.Blue), ellipseX, ellipseY, ellipseD,ellipseD);
+                var x = Convert.ToInt32(ellipseR * Math.Cos(DegreeToRadian(180-angle)));
+                var y = Convert.ToInt32(ellipseR * Math.Sin(DegreeToRadian(180-angle)));
 
-                var x = centerX+((ellipseR * (float)Math.Cos(90)));
-                var y = zeroY+((ellipseR * -(float)Math.Sin(90)));
-
-                
-                x = Convert.ToInt32(x);
-                y = Convert.ToInt32(y);
-
-                MessageBox.Show(x + " -- "+ y );
-                gr.DrawLine(new Pen(Color.Red), centerX, zeroY, x, y);
+                gr.FillEllipse(new SolidBrush(Color.Red), centerX + x-4, zeroY - y-4,8,8);
             }
 
             return modifyDiagram;
+        }
+
+        public double DegreeToRadian(float angle) 
+        {
+            return Math.PI * angle / 180.0;
         }
     }
 }

@@ -63,6 +63,7 @@ namespace ii_course_project
             int inputAngle = 0;
             int inputTeta = 0;
             int inputPsi = 0;
+            
 
             ///<summary>
             ///Парсим значения 
@@ -74,14 +75,21 @@ namespace ii_course_project
             if(int.TryParse(tbxPsi.Text,out inputPsi))
                 inputPsi = Convert.ToInt32(tbxPsi.Text);
 
-            if (inputAngle == 0 || inputTeta == 0 || inputPsi == 0)
+            if (inputTeta == 0 || inputPsi == 0)
             {
                 MessageBox.Show("Укажите верные параметры.","Ошибка!");
             }
             else 
             {
-                double sp = know._shipSpeed;//test
-                know = new Knowleges(Convert.ToDouble(tbxShipSpeed.Text));//test
+                if (Convert.ToDouble(tbxShipSpeed.Text) > 28) 
+                {
+                    MessageBox.Show("Скорость не может быть такой большой!\nБудет установлено максимальное значение (28).","Ошибка!");
+                    know = new Knowleges(28);
+                }
+                    
+                else 
+                    know = new Knowleges(Convert.ToDouble(tbxShipSpeed.Text));
+                
 
                 interection = new DiagramInterection(know);
                 know.WaveInit(inputAngle,inputTeta,inputPsi);
@@ -106,7 +114,7 @@ namespace ii_course_project
 
 
                 diagramBox.Image = interection.UpdateBitmap(path, zeroX, zeroY, sideEnd, parametricSideEnd, keelEnd, 
-                                                            sideWidth, parametricSideWidth, keelWidth);                 // Рисуем на битмапе зоны
+                                                            sideWidth, parametricSideWidth, keelWidth,inputAngle);      // Рисуем на битмапе зоны
 
 
                 ///<summary>
