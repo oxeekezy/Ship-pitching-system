@@ -78,7 +78,7 @@ namespace ii_course_project
                 var x = centerX+((ellipseR * (float)Math.Cos(90)));
                 var y = zeroY+((ellipseR * -(float)Math.Sin(90)));
 
-                //
+                
                 x = Convert.ToInt32(x);
                 y = Convert.ToInt32(y);
 
