@@ -460,9 +460,9 @@
             this.debugCheck.AutoSize = true;
             this.debugCheck.Location = new System.Drawing.Point(12, 409);
             this.debugCheck.Name = "debugCheck";
-            this.debugCheck.Size = new System.Drawing.Size(111, 19);
+            this.debugCheck.Size = new System.Drawing.Size(114, 19);
             this.debugCheck.TabIndex = 14;
-            this.debugCheck.Text = "Режим отладки";
+            this.debugCheck.Text = "Режим консоли";
             this.debugCheck.UseVisualStyleBackColor = true;
             this.debugCheck.CheckedChanged += new System.EventHandler(this.debugCheck_CheckedChanged);
             // 
