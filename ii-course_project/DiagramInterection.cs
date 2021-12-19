@@ -62,7 +62,7 @@ namespace ii_course_project
                 gr.FillRectangle(new SolidBrush(Color.FromArgb(100, Color.Yellow)), zeroX + 185 - startKeel, 0, keelWidth, zeroY);
             }
 
-            return modifyDiagram;
+            return modifyDiagram;//
         }
     }
 }
