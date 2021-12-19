@@ -50,10 +50,8 @@ namespace ii_course_project
         public double _teta;                // Входное значение амплитуды качки тета
         public double _psi;                 // Входное значение амплитуды качки пси
 
-        public Knowleges(double shipSpeed)
+        public Knowleges()
         {
-            //Изменение скорости корабля
-            _shipSpeed = shipSpeed;
             //Формульные значения
             _waveSpeed = 1.25 * Math.Pow(_waveLenght, 0.5);
             _sidePith = 0.8 * _shipWidth / Math.Pow(_metaHeight, 0.5);

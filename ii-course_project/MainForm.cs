@@ -27,7 +27,7 @@ namespace ii_course_project
         
         private void MainForm_Load(object sender, EventArgs e)
         {
-            know = new Knowleges(13.5);
+            know = new Knowleges();
 
             diagramBox.Image = Image.FromFile(path);
             diagramBox.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -80,13 +80,9 @@ namespace ii_course_project
             }
             else 
             {
-                double sp = know._shipSpeed;//test
-                know = new Knowleges(Convert.ToDouble(tbxShipSpeed.Text));//test
-
                 interection = new DiagramInterection(know);
                 know.WaveInit(inputAngle,inputTeta,inputPsi);
 
-                
                 ///<summary>
                 ///Получаем значения о ширине и расположении зон 
                 ///</summary>>
