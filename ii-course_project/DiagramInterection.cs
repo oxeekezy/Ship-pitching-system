@@ -53,13 +53,37 @@ namespace ii_course_project
 
         public Bitmap UpdateBitmap(string imagePath,int zeroX,int zeroY,int startSide, int startPSide, int startKeel, int sideWidth, int pSideWidth, int keelWidth) 
         {
+            int centerX = 220;
+            int topY = 26;
+
+            
+
             Bitmap modifyDiagram = new Bitmap(imagePath);
 
             using (Graphics gr = Graphics.FromImage(modifyDiagram))
             {
-                gr.FillRectangle(new SolidBrush(Color.FromArgb(100, Color.Aqua)), zeroX + 175 - startSide, 0, sideWidth, zeroY);
-                gr.FillRectangle(new SolidBrush(Color.FromArgb(100, Color.Red)), zeroX + 175 - startPSide, 0, pSideWidth, zeroY);
-                gr.FillRectangle(new SolidBrush(Color.FromArgb(100, Color.Yellow)), zeroX + 185 - startKeel, 0, keelWidth, zeroY);
+                gr.FillRectangle(new SolidBrush(Color.FromArgb(100, Color.Aqua)), zeroX + 190 - startSide, 0, sideWidth, zeroY);
+                gr.FillRectangle(new SolidBrush(Color.FromArgb(100, Color.Red)), zeroX + 190 - startPSide, 0, pSideWidth, zeroY);
+                gr.FillRectangle(new SolidBrush(Color.FromArgb(100, Color.Yellow)), zeroX + 190 - startKeel, 0, keelWidth, zeroY);
+
+
+                int ellipseD = Convert.ToInt32(know._shipSpeed*13);
+                int ellipseR = ellipseD / 2;
+
+                int ellipseX = centerX - ellipseR - 2;
+                int ellipseY = zeroY - ellipseR;
+
+                gr.DrawEllipse(new Pen(Color.Blue), ellipseX, ellipseY, ellipseD,ellipseD);
+
+                var x = centerX+((ellipseR * (float)Math.Cos(90)));
+                var y = zeroY+((ellipseR * -(float)Math.Sin(90)));
+
+                //
+                x = Convert.ToInt32(x);
+                y = Convert.ToInt32(y);
+
+                MessageBox.Show(x + " -- "+ y );
+                gr.DrawLine(new Pen(Color.Red), centerX, zeroY, x, y);
             }
 
             return modifyDiagram;
