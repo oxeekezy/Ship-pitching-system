@@ -34,8 +34,8 @@ namespace ii_course_project
             resultBox.SelectionAlignment = HorizontalAlignment.Center;
 
             tbxAngle.Text = (120).ToString();
-            tbxTeta.Text = (15).ToString();
-            tbxPsi.Text = (3).ToString();
+            tbxTeta.Text = (16).ToString();
+            tbxPsi.Text = (4).ToString();
 
             tbxShipLenght.Text = know._shipLenght.ToString();
             tbxShipWidth.Text = know._shipWidth.ToString();
