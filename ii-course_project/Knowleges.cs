@@ -50,7 +50,7 @@ namespace ii_course_project
         public double _teta;                // Входное значение амплитуды качки тета
         public double _psi;                 // Входное значение амплитуды качки пси
 
-        public Knowleges()
+        public Knowleges(double speed)
         {
             //Формульные значения
             _waveSpeed = 1.25 * Math.Pow(_waveLenght, 0.5);
@@ -61,6 +61,7 @@ namespace ii_course_project
             BayesFormula = PHE * PE + PHnotE * (1 - PE) + (1 - PHE) * PE + PHE * (1 - PE);
             ShortliffFormula = MDHE1 + MDHE2 * (1 - MDHE1);
             _probably = (BayesFormula + ShortliffFormula) / 2;
+            _shipSpeed = speed;
         }
 
         public void WaveInit(double angle, double teta, double psi) 
