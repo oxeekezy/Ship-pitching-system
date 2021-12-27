@@ -54,7 +54,6 @@ namespace ii_course_project
         public Bitmap UpdateBitmap(string imagePath,int zeroX,int zeroY,int startSide, int startPSide, int startKeel, int sideWidth, int pSideWidth, int keelWidth, int angle) 
         {
             int centerX = 220;
-            int topY = 26;
 
             Bitmap modifyDiagram = new Bitmap(imagePath);
 
